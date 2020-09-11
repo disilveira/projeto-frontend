@@ -1,57 +1,34 @@
-function helloWorld() {
-    for (let i = 3; i > 0; i--) {
-        console.log(i);
-    }
-    console.log('...');
-    console.log('Hello World!');
-}
-helloWorld();
+var plag = document.getElementById('lat');
+var plong = document.getElementById('long');
 
-var x = document.getElementById("coordenadas");
-
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-}
-else { 
-    x.innerHTML = "Navegador não suportado para Geolocalização."; 
+function getUserPosition() {
+    let url;
+    navigator.geolocation.getCurrentPosition((pos) => {
+        let lat = pos.coords.latitude;
+        let long = pos.coords.longitude;
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=22ba426f112d272ed0d0ca7ca48ef4b8`;
+        fetchApi(url);
+        plag.innerHTML = lat;
+        plong.innerHTML = long;
+    });
 }
 
-
-function showPosition(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    latlon = new google.maps.LatLng(lat, lon)
-    mapholder = document.getElementById('mapa')
-    mapholder.style.height = '80%';
-    mapholder.style.width = '80%';
-
-    var myOptions = {
-        center: latlon, zoom: 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false,
-        navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL }
-    };
-
-    var map = new google.maps.Map(document.getElementById("mapa"), myOptions);
-    var marker = new google.maps.Marker({ position: latlon, map: map, title: "Você está Aqui!" });
-
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+function fetchApi(url) {
+    let city = document.querySelector('.city');
+    let temp = document.querySelector('span');
+    fetch(url)
+        .then((data) => {
+            return data.json();
+        })
+        .then((data) => {
+            let tempInCelsius = ((5 / 9) * (data.main.temp - 32)).toFixed(1);
+            city.innerText = `Hoje a temperatura em ${data.name} é:`;
+            temp.innerText = tempInCelsius;
+        })
+        .catch((err) => {
+            city.innerText = `Impossível acessar o OpenWeather. Verifique a sua conexão.`;
+            temp.innerText = `-`;
+        })
 }
 
-function showError(error) {
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "Usuário rejeitou a solicitação de Geolocalização."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Localização indisponível."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "A requisição expirou."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "Erro desconhecido."
-            break;
-    }
-}
+getUserPosition();
