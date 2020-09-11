@@ -82,34 +82,53 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#ffffff" />
   </head>
 
   <body>
-    <header>
-      <div class="nav">
-        <div class="nav__title">Checa Clima</div>
-        <div class="nav__description">
-          Esse sistema utiliza a API de geolocalização do HTML5 e foi
-          desenvolvido através da disciplina de front-end avançado.
-        </div>
-      </div>
-    </header>
+    <nav>
+      <a href="#">Checa Clima</a>
+      <ul>
+        <li><a href="#topo">Clima</a></li>
+        <li><a href="#coordenadas">Coordenadas</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
 
-    <main>
-      <section>
-        <p id="lat"></p>
-        <p id="long"></p>
+    <header id="topo">
+        <h1>Clima</h1>
+        <p>Veja sua localização atual e o clima em tempo real.</p>
         <h1 class="city"></h1>
         <h2><span>0</span>ºC</h2>
-      </section>
-    </main>
+    </header>
 
-    <footer>Footer Aqui</footer>
+    <section id="coordenadas">
+      <div>
+        <h3>Latitude</h3>
+        <p id="lat"></p>
+      </div>
+
+      <div>
+        <h3>Longitude</h3>
+        <p id="long"></p>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deleniti
+        aut cumque optio, dicta tenetur ipsum minima quisquam rerum praesentium
+        repudiandae quia corporis inventore, beatae, voluptatum cum fugit
+        excepturi exercitationem.
+      </p>
+    </section>
+
+    <footer>
+      <a href="#topo">VOLTAR</a>
+      <p>Site desenvolvido por Diego Silveira</p>
+    </footer>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/main.js"></script>

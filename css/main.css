@@ -4,29 +4,139 @@
   font-family: 'Roboto', sans-serif;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  height: 80px;
-}
-
-.nav {
+nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100vw;
-  background-color: #0C154A;
+  background-color: #191970;
 }
 
-.nav__title {
-  font-size: 30px;
-  padding: 5px;
-  color: white;
+nav > a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 32px;
 }
 
-.nav__description {
-  font-size: 15px;
-  color: white;
+nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav ul li {
   text-align: center;
+  width: 100%;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 0;
+  width: 100%;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../img/bg_topo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  color: #FFFFFF;
+}
+
+header p {
+  margin-bottom: 2em;
+}
+
+#sobre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 20px 20px;
+  background-color: #191970;
+  color: #FFFFFF;
+}
+
+#sobre h2 {
+  color: #FFFFFF;
+}
+
+#sobre p {
+  margin-bottom: 2.5em;
+  max-width: 1000px;
+}
+
+#coordenadas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+#coordenadas div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px){
+  
+  nav {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  nav ul {
+    flex-direction: row;
+    width: 70%;
+  }
+
+  header {
+    height: 600px;
+    height: 60vh;
+    justify-content: center;
+  }
+
+  #sobre {
+    height: 250px;
+    height: 30vh;
+    justify-content: center;
+    min-height: 250px;
+  }
+
+  #coordenadas {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
 }
