@@ -13,10 +13,10 @@ function getUserPosition() {
     });
 }
 
-function fetchApi(url) {
+async function fetchApi(url) {
     let city = document.querySelector('.city');
     let temp = document.querySelector('span');
-    fetch(url)
+    await fetch(url)
         .then((data) => {
             return data.json();
         })
