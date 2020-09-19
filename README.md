@@ -1,5 +1,5 @@
-# Projeto Front-end
+# Front-end Project
 
-Projeto front-end pra explorar recursos de HTML5, CSS3, ES6 e WCAG
+A front-end project to explore HTML5, CSS3, ES6 e WCAG resources.
 
 Git Repo changed to: https://github.com/disilveira/projeto-frontend.git
