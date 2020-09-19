@@ -4,8 +4,8 @@ var plong = document.getElementById('long');
 function getUserPosition() {
     let url;
     navigator.geolocation.getCurrentPosition((pos) => {
-        let lat = pos.coords.latitude;
-        let long = pos.coords.longitude;
+        const lat = pos.coords.latitude;
+        const long = pos.coords.longitude;
         url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=22ba426f112d272ed0d0ca7ca48ef4b8`;
         fetchApi(url);
         plag.innerHTML = lat;
