@@ -1,5 +1,6 @@
 var plag = document.getElementById('lat');
 var plong = document.getElementById('long');
+const defaultUrl = `https://api.openweathermap.org/data/2.5/weather?lat=-19.898788&lon=-43.931790&units=imperial&APPID=22ba426f112d272ed0d0ca7ca48ef4b8`;
 
 function getUserPosition() {
     let url;
@@ -13,10 +14,10 @@ function getUserPosition() {
     });
 }
 
-async function fetchApi(url) {
+function fetchApi(url = defaultUrl) {
     let city = document.querySelector('.city');
     let temp = document.querySelector('span');
-    await fetch(url)
+    fetch(url)
         .then((data) => {
             return data.json();
         })
