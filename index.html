@@ -91,7 +91,7 @@
     <nav>
       <a href="#">Checa Clima</a>
       <ul>
-        <!-- 4.1.1 & 2.4.1 Compatible and Navigable Guideline -->
+        <!-- 4.1.1 & 2.4.1 - Compatible and Navigable Guideline -->
         <li><a href="#main">Conteúdo Principal</a></li>
         <li><a href="#coordenadas">Coordenadas</a></li>
         <li><a href="#sobre">Sobre</a></li>
@@ -101,18 +101,18 @@
     <header>
         <!-- 1.1.1 Text Alternatives Guideline -->
         <img src="img/thermometer.png" alt="Desenho de um Termômetro" height="60px">
-        <h1 id="main" class="city"></h1>
+        <h1 id="main" class="city" aria-live="polite"></h1>
     </header>
 
     <section class="coordenadas">
       <div class="coordenadas__box">
         <h3>Latitude</h3>
-        <p id="lat"></p>
+        <p id="lat" aria-live="polite"></p>
       </div>
 
       <div class="coordenadas__box">
         <h3>Longitude</h3>
-        <p id="long"></p>
+        <p id="long" aria-live="polite"></p>
       </div>
     </section>
 
